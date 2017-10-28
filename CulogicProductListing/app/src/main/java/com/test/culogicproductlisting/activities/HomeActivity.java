@@ -1,7 +1,9 @@
-package com.test.culogicproductlisting;
+package com.test.culogicproductlisting.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.test.culogicproductlisting.R;
 
 public class HomeActivity extends AppCompatActivity {
 
