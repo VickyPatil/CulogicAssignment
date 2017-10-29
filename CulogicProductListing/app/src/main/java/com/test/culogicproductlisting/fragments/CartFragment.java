@@ -69,8 +69,8 @@ public class CartFragment extends Fragment implements AddToCartCallBAck {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         cartProductList = new ArrayList<>();
-        cartProductList = (ArrayList<Product>) getArguments().getSerializable(PRODUCT_LIST);
-    }
+      //  cartProductList = (ArrayList<Product>) getArguments().getSerializable(PRODUCT_LIST);
+   }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -96,10 +96,6 @@ public class CartFragment extends Fragment implements AddToCartCallBAck {
     }
 
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
 
 
     @Override

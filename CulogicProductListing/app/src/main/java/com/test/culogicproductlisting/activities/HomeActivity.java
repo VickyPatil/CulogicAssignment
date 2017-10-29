@@ -89,18 +89,8 @@ public class HomeActivity extends BaseActivity implements TabLayout.OnTabSelecte
             cartProductList = (ArrayList<Product>) savedInstance.getSerializable(BundleKeyConstant.PRODUCT_LIST);
         }
         viewPagerProductPortfolioAdapter = new ViewPagerHomeAdapter(this.getSupportFragmentManager());
-       // if(savedInstance == null) {
             viewPagerProductPortfolioAdapter.addFrag(ProductListingFragment.newInstance(), "");
             viewPagerProductPortfolioAdapter.addFrag(CartFragment.newInstance(cartProductList), "");
-        /*}else {
-            long id1 = savedInstance.getLong("viewPagerId");
-            long id2 = savedInstance.getLong("viewPagerId2");
-            ProductListingFragment productListingFragment = (ProductListingFragment) getSupportFragmentManager().findFragmentById((int) id1);
-            CartFragment cartFragment = (CartFragment) getSupportFragmentManager().findFragmentById((int)id2);
-            viewPagerProductPortfolioAdapter.addFrag(productListingFragment, "");
-            viewPagerProductPortfolioAdapter.addFrag(cartFragment, "");
-        }
-*/
         viewPager.setAdapter(viewPagerProductPortfolioAdapter);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -167,11 +157,11 @@ public class HomeActivity extends BaseActivity implements TabLayout.OnTabSelecte
             product.setProductQuantity(String.valueOf(finalQuantity));
             cartProductList.add(position,product);
 
-            DialogUtil.showToast(getApplicationContext(), "Adding "+finalQuantity+" quantity of this product into the cart");
+            DialogUtil.showToast(getApplicationContext(), "Added to cart (quantity : "+finalQuantity+")");
         } else {
             product.setProductQuantity("1");
             cartProductList.add(product);
-            DialogUtil.showToast(getApplicationContext(), "Product added successfully into the cart");
+            DialogUtil.showToast(getApplicationContext(), "Added to cart");
         }
     }
 
