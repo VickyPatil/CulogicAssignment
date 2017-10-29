@@ -52,7 +52,7 @@ public class ProductGalleryDialog extends Dialog implements View.OnClickListener
 
     private void initView() {
 
-        imageClose = (ImageView) findViewById(R.id.imageClose);
+        imageClose = (ImageView) findViewById(R.id.ivClose);
         textViewTitle = (TextView) findViewById(R.id.textViewTitle);
         textViewTitle.setText(title);
         viewPager = (ViewPager) findViewById(R.id.pager);
@@ -62,12 +62,12 @@ public class ProductGalleryDialog extends Dialog implements View.OnClickListener
         addPageChangeListener();
         ivNext.setOnClickListener(this);
         ivPrev.setOnClickListener(this);
+        imageClose.setOnClickListener(this);
         viewPager.setCurrentItem(currentPagePosition);
 
         handlePageChange(currentPagePosition);
 
 
-        imageClose.setOnClickListener(this);
     }
 
     private void addPageChangeListener() {
@@ -106,7 +106,7 @@ public class ProductGalleryDialog extends Dialog implements View.OnClickListener
                 handlePageChange(currentPagePosition);
 
                 break;
-            case R.id.imageClose:
+            case R.id.ivClose:
                 dismiss();
                 break;
         }

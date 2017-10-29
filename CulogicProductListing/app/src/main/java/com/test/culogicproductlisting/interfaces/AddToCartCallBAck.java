@@ -1,6 +1,6 @@
 package com.test.culogicproductlisting.interfaces;
 
-import com.androidapp.culogicassignment.models.Product;
+import com.test.culogicproductlisting.models.Product;
 
 import java.util.ArrayList;
 

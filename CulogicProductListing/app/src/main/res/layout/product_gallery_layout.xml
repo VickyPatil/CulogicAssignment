@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:background="@android:color/black"
     android:layout_height="match_parent">
+
     <RelativeLayout
         android:id="@+id/relative_header"
         android:layout_width="match_parent"
@@ -10,13 +11,12 @@
         android:background="@color/colorPrimary">
 
         <ImageView
-            android:id="@+id/imageClose"
+            android:id="@+id/ivClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:clickable="true"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="@dimen/imageClose_margin_right_product_gallery_dialog_layout"
             android:src="@drawable/ic_close" />
 
 
@@ -25,11 +25,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="@dimen/textViewTitle_margin_left_product_gallery_dialog_layout"
             android:layout_alignParentLeft="true"
             android:maxLines="1"
             android:ellipsize="end"
-            android:layout_toLeftOf="@+id/imageClose"
+            android:textSize="@dimen/textViewTitle_text_size_product_gallery_dialog_layout"
+            android:layout_toLeftOf="@+id/ivClose"
             android:textColor="@android:color/white"
             />
 
@@ -37,9 +38,10 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentTop="true" />
+        android:layout_below="@+id/relative_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -48,16 +50,16 @@
 
         <ImageView
             android:id="@+id/ivPrev"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/ivPrev_width_product_gallery_dialog_layout"
+            android:layout_height="@dimen/ivPrev_height_product_gallery_dialog_layout"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:src="@drawable/ic_arrow_prev"/>
 
         <ImageView
             android:id="@+id/ivNext"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/ivPrev_width_product_gallery_dialog_layout"
+            android:layout_height="@dimen/ivPrev_height_product_gallery_dialog_layout"
             android:layout_gravity="end"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"

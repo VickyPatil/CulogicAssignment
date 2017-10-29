@@ -49,7 +49,7 @@ public class SlidingImageAdapter extends PagerAdapter {
         final ImageView imageView = (ImageView) imageLayout
                 .findViewById(R.id.photo_view);
 
-        Picasso.with(context).load(images.get(position)).into(imageView);
+        Picasso.with(context).load(images.get(position)).placeholder(R.drawable.ic_placholder_logo).into(imageView);
 
         view.addView(imageLayout, 0);
 

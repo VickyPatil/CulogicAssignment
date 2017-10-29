@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:padding="10dp"
+        android:padding="@dimen/tvTotalPrice_padding_fragment_product"
         android:gravity="center"
         android:visibility="gone"
         android:textColor="@android:color/black"/>
@@ -32,6 +32,6 @@
         android:text="Data not found"
         android:visibility="gone"
         android:textColor="@android:color/black"
-        android:textSize="18sp" />
+        android:textSize="@dimen/tvNoData_text_size_fragment_product" />
 
 </RelativeLayout>

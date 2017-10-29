@@ -3,15 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="4dp"
     app:cardBackgroundColor="@android:color/white"
+    app:cardElevation="@dimen/cVMain_elevation_item_layout_rv_cart_product"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
+        android:id="@+id/llMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_margin="@dimen/llMain_margin_item_layout_rv_cart_product"
+        android:orientation="vertical">
 
 
         <LinearLayout
@@ -21,45 +22,44 @@
 
             <ImageView
                 android:id="@+id/ivProduct"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/ivProduct_width_item_layout_rv_cart_product"
+                android:layout_height="@dimen/ivProduct_height_item_layout_rv_cart_product"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_placholder_logo" />
 
             <LinearLayout
+                android:id="@+id/llProductInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="3dp"
+                android:layout_marginLeft="@dimen/llProductInfo_margin_left_item_layout_rv_cart_product"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-
                     <TextView
                         android:id="@+id/tvProductPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
                         android:gravity="center"
-                        android:layout_centerVertical="true"
-                        android:textColor="@android:color/black"
                         android:maxLines="2"
-                        android:text="Price : 20"
-                        android:textSize="16sp" />
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/tvProductPrice_text_size_item_layout_rv_cart_product" />
 
                     <TextView
                         android:id="@+id/tvProductName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
+                        android:layout_alignParentTop="true"
                         android:layout_toLeftOf="@+id/tvProductPrice"
                         android:gravity="left"
-                        android:textColor="@android:color/black"
                         android:maxLines="1"
-                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/tvProductName_text_size_item_layout_rv_cart_product"
                         android:textStyle="bold" />
 
 
@@ -70,19 +70,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="left"
-                    android:textColor="@android:color/black"
                     android:maxLines="1"
-                    android:textSize="16sp" />
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/tvProductPrice_text_size_item_layout_rv_cart_product" />
 
                 <TextView
                     android:id="@+id/tvVendorAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:ellipsize="end"
                     android:gravity="left"
-                    android:textColor="@android:color/black"
                     android:maxLines="3"
-                    android:textSize="16sp" />
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/tvProductPrice_text_size_item_layout_rv_cart_product" />
 
 
             </LinearLayout>
@@ -93,6 +94,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/rl_bottom_margin_top"
             android:orientation="horizontal">
 
             <Button
@@ -101,7 +103,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:text="Call Vendor"
+                android:layout_marginLeft="@dimen/btnCall_margin_left_item_layout_rv_cart_product"
+                android:text="@string/label_call"
                 android:textAllCaps="false" />
 
             <Button
@@ -110,9 +113,30 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:text="Remove from cart"
-
+                android:layout_marginRight="@dimen/btnDelete_margin_right_item_layout_rv_cart_product"
+                android:text="@string/label_delete"
                 android:textAllCaps="false" />
+
+
+
+            <TextView
+                android:id="@+id/tvQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/btnDelete"
+                android:layout_toRightOf="@+id/btnCall"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/rounded_corner_rectangle"
+                android:drawableRight="@drawable/ic_arrow_drop_down_black_18dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:padding="2dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/tvProductPrice_text_size_item_layout_rv_cart_product" />
+
 
 
         </RelativeLayout>

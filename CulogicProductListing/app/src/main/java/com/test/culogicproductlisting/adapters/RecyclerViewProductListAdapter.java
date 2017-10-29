@@ -9,11 +9,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.androidapp.culogicassignment.R;
-import com.androidapp.culogicassignment.activities.HomeActivity;
-import com.androidapp.culogicassignment.customview.ProductGalleryDialog;
-import com.androidapp.culogicassignment.models.Product;
 import com.squareup.picasso.Picasso;
+import com.test.culogicproductlisting.R;
+import com.test.culogicproductlisting.activities.HomeActivity;
+import com.test.culogicproductlisting.customviews.ProductGalleryDialog;
+import com.test.culogicproductlisting.models.Product;
 
 import java.util.ArrayList;
 
@@ -37,7 +37,7 @@ public class RecyclerViewProductListAdapter extends RecyclerView.Adapter<Recycle
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout_rv_product_portfolio, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout_rv_product_list, parent, false);
         return new RecyclerViewProductListAdapter.ViewHolder(itemView);
     }
 
@@ -45,7 +45,7 @@ public class RecyclerViewProductListAdapter extends RecyclerView.Adapter<Recycle
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final Product product = productArrayList.get(position);
         holder.tvProductName.setText(product.getProductName());
-        holder.tvProductPrice.setText(String.valueOf(product.getPrice()));
+        holder.tvProductPrice.setText(context.getString(R.string.label_price)+" "+String.valueOf(product.getPrice()));
         holder.tvVendorName.setText(product.getVendorName());
         holder.tvVendorAddress.setText(product.getVendorAddress());
         showImageFromUrl(product.getProductImg(),holder.ivProduct);

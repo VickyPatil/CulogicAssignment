@@ -6,7 +6,7 @@
     <dimen name="progress_dialog_thickness">5dp</dimen>
 
     <dimen name="tab_layout_height_activity_home">60dp</dimen>
-    <dimen name="tabIndicatorHeight_height_activity_home">3dp</dimen>
+    <dimen name="tabIndicatorHeight_height_activity_home">1dp</dimen>
 
 
     <dimen name="tab_text_size">16sp</dimen>
@@ -23,7 +23,6 @@
     <dimen name="btnCall_margin_left_item_layout_rv_cart_product">-5dp</dimen>
     <dimen name="btnDelete_margin_right_item_layout_rv_cart_product">-5dp</dimen>
     <dimen name="llProductInfo_margin_left_item_layout_rv_cart_product">5dp</dimen>
-    <dimen name="rl_bottom_margin_top">10dp</dimen>
 
 
     <dimen name="llMain_margin_item_layout_rv_product">15dp</dimen>
@@ -33,17 +32,17 @@
     <dimen name="tvProductName_margin_top_item_layout_rv_product">8dp</dimen>
     <dimen name="tvVendorName_margin_top_item_layout_rv_product">10dp</dimen>
     <dimen name="tvAddToCart_text_size_item_layout_rv_product">16sp</dimen>
-    <dimen name="tvAddToCart_padding_item_layout_rv_product">8dp</dimen>
+    <dimen name="tvAddToCart_padding_item_layout_rv_product">5dp</dimen>
     <dimen name="ivProduct_height_item_layout_rv_product">80dp</dimen>
     <dimen name="ivProduct_width_item_layout_rv_product">180dp</dimen>
 
     <dimen name="tvToolbarTitle_text_size">18sp</dimen>
-
-    <dimen name="ivPrev_height_product_gallery_dialog_layout">40dp</dimen>
-    <dimen name="ivPrev_width_product_gallery_dialog_layout">40dp</dimen>
+    
+    <dimen name="ivPrev_height_product_gallery_dialog_layout">30dp</dimen>
+    <dimen name="ivPrev_width_product_gallery_dialog_layout">30dp</dimen>
     <dimen name="imageClose_margin_right_product_gallery_dialog_layout">20dp</dimen>
     <dimen name="textViewTitle_margin_left_product_gallery_dialog_layout">30dp</dimen>
-    <dimen name="textViewTitle_text_size_product_gallery_dialog_layout">18sp</dimen>
+    <dimen name="textViewTitle_text_size_product_gallery_dialog_layout">16sp</dimen>
 
 
 

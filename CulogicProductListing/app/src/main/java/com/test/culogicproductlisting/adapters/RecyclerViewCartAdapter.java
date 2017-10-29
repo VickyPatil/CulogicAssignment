@@ -1,20 +1,26 @@
 package com.test.culogicproductlisting.adapters;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.androidapp.culogicassignment.R;
-import com.androidapp.culogicassignment.fragments.CartFragment;
-import com.androidapp.culogicassignment.models.Product;
 import com.squareup.picasso.Picasso;
+import com.test.culogicproductlisting.R;
+import com.test.culogicproductlisting.fragments.CartFragment;
+import com.test.culogicproductlisting.models.Product;
 
 import java.util.ArrayList;
 
@@ -46,10 +52,11 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
     public void onBindViewHolder(final RecyclerViewCartAdapter.ViewHolder holder, final int position) {
         final Product product = productArrayList.get(position);
         holder.tvProductName.setText(product.getProductName());
-        holder.tvProductPrice.setText("Price :\n"+String.valueOf(product.getPrice()));
+        holder.tvProductPrice.setText(context.getString(R.string.label_price)+"\n"+String.valueOf(product.getPrice()));
         holder.tvVendorName.setText(product.getVendorName());
         holder.tvVendorAddress.setText(product.getVendorAddress());
         showImageFromUrl(product.getProductImg(),holder.ivProduct);
+        holder.tvQuantity.setText("Quantity: "+product.getProductQuantity());
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,8 +68,14 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
         holder.btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                context.requestPhoneCallPermission(product.getPhoneNumber());
+            }
+        });
 
-                placePhoneCall(product.getPhoneNumber());
+        holder.tvQuantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               updateProductQuantity(product,position);
             }
         });
     }
@@ -74,7 +87,7 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
         RelativeLayout rlImageContainer;
-        TextView tvProductName,tvProductPrice,tvVendorName,tvVendorAddress;
+        TextView tvProductName,tvProductPrice,tvVendorName,tvVendorAddress,tvQuantity;
         ImageView ivProduct;
         Button btnCall,btnDelete;
 
@@ -88,6 +101,7 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
             rlImageContainer = (RelativeLayout) itemView.findViewById(R.id.rlImageContainer);
             btnCall = (Button) itemView.findViewById(R.id.btnCall);
             btnDelete = (Button) itemView.findViewById(R.id.btnDelete);
+            tvQuantity = (TextView) itemView.findViewById(R.id.tvQuantity);
         }
     }
 
@@ -96,17 +110,39 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
             Picasso.with(context.getActivity()).load(url).noFade().placeholder(R.drawable.ic_placholder_logo).into(imageView);
     }
 
-    private void placePhoneCall(String phoneNumber){
-        if(phoneNumber!=null && !phoneNumber.isEmpty()) {
-            Intent intent = new Intent(Intent.ACTION_CALL);
-            intent.setData(Uri.parse("tel:" + phoneNumber));
-            context.getActivity().startActivity(intent);
-        }
-    }
+
 
     private void removeProductFromCart(int position){
         productArrayList.remove(position);
-        this.notifyItemRemoved(position);
+        notifyDataSetChanged();
+    }
+
+    private void updateProductQuantity(final Product product, final int positon){
+        final String quantities [] = new String[10];
+        for(int i=0;i<10;i++){
+            quantities[i] = String.valueOf((i+1));
+        }
+        ContextThemeWrapper ctw = new ContextThemeWrapper(context.getActivity(), R.style.AlertDialogCustom);
+        AlertDialog.Builder builder = new AlertDialog.Builder(ctw);
+        builder.setTitle("Select quantity");
+        builder.setItems(quantities, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int item) {
+                // Do something with the selection
+
+                product.setProductQuantity(quantities[item]);
+                notifyDataSetChanged();
+                context.updateTotalPrice(productArrayList);
+                if(item == quantities.length){
+
+                }
+
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+        ListView listView=alert.getListView();
+        listView.setDivider(new ColorDrawable(Color.BLACK)); // set color
+        listView.setDividerHeight(2);
     }
 }
 

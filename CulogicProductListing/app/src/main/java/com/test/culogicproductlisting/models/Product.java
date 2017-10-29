@@ -1,7 +1,6 @@
-package com.test.culogicproductlisting.daos;
+package com.test.culogicproductlisting.models;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+import com.google.gson.annotations.SerializedName;
 import com.test.culogicproductlisting.utils.Constants;
 
 import java.util.ArrayList;
@@ -9,31 +8,31 @@ import java.util.ArrayList;
 /**
  * Created by Vikas on 26/10/17.
  */
-@DatabaseTable(tableName = "ProductDao")
-public class ProductDao {
-    @DatabaseField(columnName = Constants.PRODUCT_ID,generatedId = true)
-    private int productId;
-    @DatabaseField(columnName = Constants.PRODUCT_NAME)
-    private String productName;
-    @DatabaseField(columnName = Constants.PRICE)
-    private double price;
-    @DatabaseField(columnName = Constants.VENDOR_NAME)
-    private String vendorName;
-    @DatabaseField(columnName = Constants.VENDOR_ADDRESS)
-    private String vendorAddress;
-    @DatabaseField(columnName = Constants.PRODUCT_IMG)
-    private String productImg;
-    @DatabaseField(columnName = Constants.PRODUCT_GALLERY)
-    private ArrayList<String> productGallery;
-    @DatabaseField(columnName = Constants.PHONE_NUMBER)
-    private String phoneNumber;
 
-    public int getProductId() {
-        return productId;
+public class Product {
+    @SerializedName(Constants.PRODUCT_NAME)
+    private String productName;
+    @SerializedName(Constants.PRICE)
+    private double price;
+    @SerializedName(Constants.VENDOR_NAME)
+    private String vendorName;
+    @SerializedName(Constants.VENDOR_ADDRESS)
+    private String vendorAddress;
+    @SerializedName(Constants.PRODUCT_IMG)
+    private String productImg;
+    @SerializedName(Constants.PRODUCT_GALLERY)
+    private ArrayList<String> productGallery;
+    @SerializedName(Constants.PHONE_NUMBER)
+    private String phoneNumber;
+    transient
+    private String productQuantity;
+
+    public String getProductQuantity() {
+        return productQuantity;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setProductQuantity(String productQuantity) {
+        this.productQuantity = productQuantity;
     }
 
     public String getProductName() {
@@ -90,5 +89,19 @@ public class ProductDao {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public boolean  equals (Object object) {
+        boolean result = false;
+        if (object == null || object.getClass() != getClass()) {
+            result = false;
+        } else {
+            Product product = (Product) object;
+            if (this.productName.equals(product.getProductName())) {
+                result = true;
+            }
+        }
+        return result;
     }
 }

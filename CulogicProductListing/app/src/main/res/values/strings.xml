@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">CulogicProductListing</string>
+    <string name="product_list_tab_title">Shop</string>
+    <string name="cart_list_tab_title">Cart</string>
+    <string name="label_products">Products</string>
+    <string name="label_call">Call vendor</string>
+    <string name="label_delete">Remove from cart</string>
+    <string name="label_add_cart">Add to cart</string>
+    <string name="label_price">Price : </string>
+
+    <string name="label_permission_alert_title">Need call Permission</string>
+    <string name="label_permission_alert_message">This app needs phone call permission.</string>
+    <string name="label_permission_alert_yes">Grant</string>
+    <string name="label_permission_alert_no">Cancel</string>
+    <string name="label_unable_to_get_permission">Unable to get Permission</string>
+
 </resources>
