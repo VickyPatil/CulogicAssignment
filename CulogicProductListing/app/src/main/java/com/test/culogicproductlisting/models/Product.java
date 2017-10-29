@@ -3,13 +3,14 @@ package com.test.culogicproductlisting.models;
 import com.google.gson.annotations.SerializedName;
 import com.test.culogicproductlisting.utils.Constants;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Vikas on 26/10/17.
  */
 
-public class Product {
+public class Product implements Serializable{
     @SerializedName(Constants.PRODUCT_NAME)
     private String productName;
     @SerializedName(Constants.PRICE)

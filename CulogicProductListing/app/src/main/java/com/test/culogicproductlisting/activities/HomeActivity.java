@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -81,7 +82,7 @@ public class HomeActivity extends BaseActivity implements TabLayout.OnTabSelecte
     }
 
 
-    private void setupViewPager(ViewPager viewPager,Bundle savedInstance) {
+    private void setupViewPager(final ViewPager viewPager, Bundle savedInstance) {
         viewPager.setOffscreenPageLimit(1);
         if(savedInstance == null){
             cartProductList = new ArrayList<>();
@@ -89,8 +90,8 @@ public class HomeActivity extends BaseActivity implements TabLayout.OnTabSelecte
             cartProductList = (ArrayList<Product>) savedInstance.getSerializable(BundleKeyConstant.PRODUCT_LIST);
         }
         viewPagerProductPortfolioAdapter = new ViewPagerHomeAdapter(this.getSupportFragmentManager());
-            viewPagerProductPortfolioAdapter.addFrag(ProductListingFragment.newInstance(), "");
-            viewPagerProductPortfolioAdapter.addFrag(CartFragment.newInstance(cartProductList), "");
+        viewPagerProductPortfolioAdapter.addFrag(ProductListingFragment.newInstance(), "");
+        viewPagerProductPortfolioAdapter.addFrag(CartFragment.newInstance(cartProductList), "");
         viewPager.setAdapter(viewPagerProductPortfolioAdapter);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -105,10 +106,15 @@ public class HomeActivity extends BaseActivity implements TabLayout.OnTabSelecte
                     setToolbarTitle(getString(R.string.product_list_tab_title));
                 } else {
                     setToolbarTitle(getString(R.string.cart_list_tab_title));
-                    CartFragment cartFragment = (CartFragment) viewPagerProductPortfolioAdapter.getItem(position);
-                    if (cartFragment != null) {
-                        cartFragment.onCartRefresh(cartProductList);
+
+                    Fragment fragment = viewPagerProductPortfolioAdapter.getFragmentForPosition(viewPager,position);
+                    if(fragment instanceof CartFragment) {
+                        CartFragment cartFragment = (CartFragment) fragment;
+                        if (cartFragment != null) {
+                            cartFragment.onCartRefresh(cartProductList);
+                        }
                     }
+
                 }
 
 
