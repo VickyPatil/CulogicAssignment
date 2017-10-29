@@ -45,6 +45,8 @@
     <dimen name="textViewTitle_margin_left_product_gallery_dialog_layout">30dp</dimen>
     <dimen name="textViewTitle_text_size_product_gallery_dialog_layout">18sp</dimen>
 
+    <dimen name="btn_height_layout_rv_product">40dp</dimen>
+
 
 
 

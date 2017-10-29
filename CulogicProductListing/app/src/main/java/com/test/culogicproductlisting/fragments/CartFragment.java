@@ -319,7 +319,7 @@ public class CartFragment extends Fragment implements AddToCartCallBAck {
                 double productPrice = (Double.parseDouble(product.getProductQuantity()) * product.getPrice());
                 totalPrice += productPrice;
             }
-            tvTotalPrice.setText("Total Price : " + String.valueOf(totalPrice));
+            tvTotalPrice.setText("Total Price Rs. : " + String.valueOf(totalPrice));
         } else {
             setCartListVisibility(false);
         }

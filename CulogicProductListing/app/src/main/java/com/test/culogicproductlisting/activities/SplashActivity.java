@@ -2,30 +2,53 @@ package com.test.culogicproductlisting.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.test.culogicproductlisting.R;
 
 public class SplashActivity extends AppCompatActivity {
+    private TextView tvLogo;
+    private ImageView ivLogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        new Handler().postDelayed(new Runnable() {
+        tvLogo = (TextView) findViewById(R.id.tvLogo);
+        ivLogo = (ImageView) findViewById(R.id.imageView);
+        runAnimationForText();
+    }
 
-            // Using handler with postDelayed called runnable run method
+    private void runAnimationForText() {
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.right_to_left);
+
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
 
             @Override
-            public void run() {
+            public void onAnimationEnd(Animation animation) {
                 Intent i = new Intent(SplashActivity.this, HomeActivity.class);
                 startActivity(i);
 
                 // close this activity
                 finish();
-            }
-        }, 2*1000); // wait for 5 seconds
 
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        ivLogo.startAnimation(animation);
     }
+
+
 }

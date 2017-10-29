@@ -97,23 +97,29 @@
             android:layout_marginTop="@dimen/rl_bottom_margin_top"
             android:orientation="horizontal">
 
-            <Button
+            <TextView
                 android:id="@+id/btnCall"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/btn_height_layout_rv_product"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/btnCall_margin_left_item_layout_rv_cart_product"
+                android:gravity="center"
+                android:padding="4dp"
+                android:textColor="@android:color/black"
+                android:background="@drawable/rounded_corner_rectangle"
                 android:text="@string/label_call"
                 android:textAllCaps="false" />
 
-            <Button
+            <TextView
                 android:id="@+id/btnDelete"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/btn_height_layout_rv_product"
                 android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:background="@drawable/rounded_corner_rectangle"
+                android:padding="4dp"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/btnDelete_margin_right_item_layout_rv_cart_product"
                 android:text="@string/label_delete"
                 android:textAllCaps="false" />
 
@@ -122,9 +128,10 @@
             <TextView
                 android:id="@+id/tvQuantity"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/btn_height_layout_rv_product"
                 android:layout_centerVertical="true"
                 android:layout_centerInParent="true"
+
                 android:layout_toLeftOf="@+id/btnDelete"
                 android:layout_toRightOf="@+id/btnCall"
                 android:layout_marginLeft="2dp"

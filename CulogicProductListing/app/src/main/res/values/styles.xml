@@ -21,4 +21,8 @@
         <item name="android:textColor">@color/colorAccent</item>
 
     </style>
+
+    <style name="btn_style" parent="Theme.AppCompat">
+        <item name="android:background">@drawable/btn_ripple_effect</item>
+    </style>
 </resources>

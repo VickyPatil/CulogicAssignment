@@ -89,7 +89,7 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
         RelativeLayout rlImageContainer;
         TextView tvProductName,tvProductPrice,tvVendorName,tvVendorAddress,tvQuantity;
         ImageView ivProduct;
-        Button btnCall,btnDelete;
+        TextView btnCall,btnDelete;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -99,8 +99,8 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
             tvVendorName = (TextView) itemView.findViewById(R.id.tvVendorName);
             ivProduct = (ImageView) itemView.findViewById(R.id.ivProduct);
             rlImageContainer = (RelativeLayout) itemView.findViewById(R.id.rlImageContainer);
-            btnCall = (Button) itemView.findViewById(R.id.btnCall);
-            btnDelete = (Button) itemView.findViewById(R.id.btnDelete);
+            btnCall = (TextView) itemView.findViewById(R.id.btnCall);
+            btnDelete = (TextView) itemView.findViewById(R.id.btnDelete);
             tvQuantity = (TextView) itemView.findViewById(R.id.tvQuantity);
         }
     }
